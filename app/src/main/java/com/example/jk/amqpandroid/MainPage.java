@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.rabbitmq.client.AMQP;
@@ -29,7 +30,7 @@ public class MainPage extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
-        Log.d("'", "Test");
+
         setupConnectionFactory();
         publishToAMQP();
         setupPubButton();
@@ -43,6 +44,17 @@ public class MainPage extends AppCompatActivity {
                 Date now = new Date();
                 SimpleDateFormat ft = new SimpleDateFormat ("hh:mm:ss");
                 tv.append(ft.format(now) + ' ' + message + '\n');
+
+                //Update scrollView to show bottom
+                final ScrollView sc = (ScrollView) findViewById(R.id.scrollView);
+                sc.post(new Runnable()
+                {
+                    public void run()
+                    {
+                        sc.fullScroll(View.FOCUS_DOWN);
+                    }
+                });
+
             }
         };
         subscribe(incomingMessageHandler);
