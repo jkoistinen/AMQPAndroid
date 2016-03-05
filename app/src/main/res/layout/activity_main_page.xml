@@ -29,6 +29,13 @@
         android:layout_below="@+id/text"
         android:text="Publish message" />
 
+    <Button
+        android:id="@+id/buttondummymsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text"
+        android:text="Dummy message" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"

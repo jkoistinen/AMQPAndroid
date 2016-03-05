@@ -33,6 +33,7 @@ public class MainPage extends AppCompatActivity {
         setupConnectionFactory();
         publishToAMQP();
         setupPubButton();
+        setupDummyPubButton();
 
         final Handler incomingMessageHandler = new Handler() {
             @Override
@@ -56,6 +57,23 @@ public class MainPage extends AppCompatActivity {
                 publishMessage(et.getText().toString());
                 Log.d("'", et.getText().toString());
                 et.setText("");
+            }
+        });
+    }
+
+    void setupDummyPubButton() {
+        Button button = (Button) findViewById(R.id.buttondummymsg);
+        button.setOnClickListener(new View.OnClickListener() {
+            int counter = 0;
+            @Override
+            public void onClick(View arg0) {
+                while (counter < 100) {
+                    String msg = "Dummy message " + counter;
+                    counter++;
+                    publishMessage(msg);
+                    Log.d("'", msg);
+                }
+                counter = 0;
             }
         });
     }
