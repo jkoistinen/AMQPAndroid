@@ -24,23 +24,30 @@
                 />
         </ScrollView>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <EditText
             android:id="@+id/text"
             android:layout_width="fill_parent"
-            android:layout_height="50dp"
-            android:background="#ffffff"
-            android:hint="Enter a message" />
-
-        <Button
-            android:id="@+id/publish"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Publish message" />
+            android:background="#ffffff"
+            android:hint="Enter a message"
+            android:layout_weight="1" />
 
         <Button
+                android:id="@+id/publish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Publish message" />
+    </LinearLayout>
+
+    <Button
             android:id="@+id/buttondummymsg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Dummy message" />
 
-    </LinearLayout>
+</LinearLayout>
